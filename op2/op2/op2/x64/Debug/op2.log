@@ -1,0 +1,3 @@
+﻿  main.cpp
+H:\Univer\ОП\op2\op2\op2\main.cpp(11,7): warning C4101: error_buf: неиспользованная локальная переменная
+  op2.vcxproj -> H:\Univer\ОП\op2\op2\x64\Debug\op2.exe
