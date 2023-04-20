@@ -1,81 +1,35 @@
-#include <iostream>
-#include <cmath>
-
-class BoolVector {
-private:
-    bool* data_;
-    size_t size_;
-
-public:
-    BoolVector() : data_(nullptr), size_(0) {}
-    BoolVector(size_t size) : data_(new bool[size]), size_(size) {}
-    BoolVector(const BoolVector& other) : data_(new bool[other.size_]), size_(other.size_) {
-        for (size_t i = 0; i < size_; ++i) {
-            data_[i] = other.data_[i];
-        }
-    }
-    ~BoolVector() {
-        delete[] data_;
-    }
-
-    bool operator[](size_t index) const {
-        return data_[index];
-    }
-    bool& operator[](size_t index) {
-        return data_[index];
-    }
-    BoolVector operator|(const BoolVector& other) const {
-        if (size_ != other.size_) {
-            throw std::invalid_argument("Vectors must have the same size");
-        }
-        BoolVector result(size_);
-        for (size_t i = 0; i < size_; ++i) {
-            result[i] = data_[i] || other[i];
-        }
-        return result;
-    }
-    BoolVector operator^(const BoolVector& other) const {
-        if (size_ != other.size_) {
-            throw std::invalid_argument("Vectors must have the same size");
-        }
-        BoolVector result(size_);
-        for (size_t i = 0; i < size_; ++i) {
-            result[i] = data_[i] != other[i];
-        }
-        return result;
-    }
-
-    bool is_predecessor(const BoolVector& other) const {
-        if (size_ != other.size_) {
-            return false;
-        }
-        for (size_t i = 0; i < size_; ++i) {
-            if (data_[i] > other[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    size_t size() const {
-        return size_;
-    }
-};
+#include "boolvector.h"
 
 int main() {
-    BoolVector v1(4);
-    v1[0] = false;
-    v1[1] = true;
-    v1[2] = true;
-    v1[3] = false;
 
-    BoolVector v2 = ( true, true, false, false );
+	BoolVector vec1;
+	//BoolVector vec2 = { true, false, true, false, false, true };
+	BoolVector vec2 = { true, false, true, true, true, false};
 
-    BoolVector v3 = v1 | v2;
+	// Простое заполнение первого вектора чередованием.
+	for (size_t i = 0; i < vec2.size(); i++) {
+		if (i % 2 == 0) {
+			vec1.append(false);
+		}
+		else {
+			vec1.append(true);
+		}
+	}
 
-    BoolVector v4 = v3 ^ v1;
+	std::cout << "Vector1: ";
+	std::cout << vec1 << std::endl;
+	std::cout << "Vector2: ";
+	std::cout << vec2 << std::endl;
 
-    std::cout << v4.is_predecessor(v3) << std::endl; // Output: 1
+	BoolVector vec3(vec1 | vec2);
 
-    return 0;
+	std::cout << "V1 | V2: ";
+	std::cout << vec3 << std::endl;
+	BoolVector vec4(vec3 ^ vec1);
+	std::cout << "V3 ^ V1: ";
+	std::cout << vec4 << std::endl;
+	std::cout << "Vec4 is precursor of Vec3? " << vec4.is_precursor(vec3) << std::endl;
+
+
+	return 0;
 }
