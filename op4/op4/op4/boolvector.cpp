@@ -1,117 +1,72 @@
 #include "boolvector.h"
 
+BoolVector::BoolVector() {
+	this->X;
+	this->Y;
+	this->Z;
+}
 
-BoolVector::BoolVector() : _size(0), _capacity(1), memory(new bool[_capacity]) {}
-BoolVector::BoolVector(size_t size) : _size(size), _capacity(size * 2), memory(new bool[size]) {}
+BoolVector::BoolVector(bool v1, bool v2, bool v3) {
+	this->X = v1;
+	this->Y = v2;
+	this->Z = v3;
 
-// Конструктор копирования.
-BoolVector::BoolVector(const BoolVector& vector) : _size(vector._size), _capacity(vector._capacity) {
-	memory = new bool[_size];
+	this->cordinates[0] = X;
+	this->cordinates[1] = Y;
+	this->cordinates[2] = Z;
+}
 
-	for (size_t i = 0; i < _size; i++) {
-		memory[i] = vector.memory[i];
+BoolVector BoolVector::operator|(BoolVector& other) {
+	BoolVector temp;
+
+	temp.cordinates[0] = this->cordinates[0] || other.cordinates[0];
+	temp.cordinates[1] = this->cordinates[1] || other.cordinates[1];
+	temp.cordinates[2] = this->cordinates[2] || other.cordinates[2];
+
+	temp.X = cordinates[0];
+	temp.Y = cordinates[1];
+	temp.Z = cordinates[2];
+	
+	return temp;
+}
+
+BoolVector BoolVector::operator^(BoolVector& other) {
+	BoolVector temp;
+
+	temp.cordinates[0] = (this->cordinates[0] || other.cordinates[0]) && !(this->cordinates[0] && other.cordinates[0]);
+	temp.cordinates[1] = (this->cordinates[1] || other.cordinates[1]) && !(this->cordinates[1] && other.cordinates[1]);
+	temp.cordinates[2] = (this->cordinates[2] || other.cordinates[2]) && !(this->cordinates[2] && other.cordinates[2]);
+
+	temp.X = cordinates[0];
+	temp.Y = cordinates[1];
+	temp.Z = cordinates[2];
+
+	return temp;
+}
+
+void BoolVector::setXYZ(bool value1, bool value2, bool value3) {
+	this->X = value1;
+	this->Y = value2;
+	this->Z = value3;
+	setCord();
+}
+
+
+void BoolVector::setCord() {
+	this->cordinates[0] = X;
+	this->cordinates[1] = Y;
+	this->cordinates[2] = Z;
+}
+
+bool BoolVector::is_predecessor(BoolVector& other) {
+	if (this->cordinates[0] >= other.cordinates[0] || this->cordinates[1] >= other.cordinates[1] || this->cordinates[2] >= other.cordinates[2]) {
+		return false;
 	}
-}
-
-// Конструктор со списком инициализации.
-BoolVector::BoolVector(std::initializer_list<bool> list) {
-	_size = list.size();
-	_capacity = _size * 2;
-	memory = new bool[_size];
-
-	size_t index = 0;
-	for (auto flag : list) {
-		memory[index++] = flag;
-	}
-}
-
-size_t BoolVector::size() const {
-	return _size;
-}
-
-size_t BoolVector::capacity() const {
-	return _capacity;
-}
-
-void BoolVector::append(bool value) {
-	if (_size >= _capacity) resize();
-
-	memory[_size++] = value;
-}
-
-bool BoolVector::is_precursor(const BoolVector& vector) {
-	for (size_t i = 0; i < _size; i++) {
-		if (memory[i] > vector.memory[i]) return false;
-	}
-
 	return true;
 }
 
-void BoolVector::fill_zeroes(size_t diff) {
-	for (size_t i = 0; i < diff; i++) {
-		append(false);
-	}
+void BoolVector::printCord() {
+	cout << "(" << cordinates[0] << ";" << cordinates[1] << ";" << cordinates[2] << ")" << endl;
 }
 
-bool& BoolVector::operator[](const int index) const {
-	return memory[index];
-}
-
-std::ostream& operator<<(std::ostream& out, const BoolVector& vec) {
-	out << "{ ";
-	for (size_t i = 0; i < vec.size(); i++) {
-		i != vec.size() - 1 ? out << vec[i] << ", " : out << vec[i] << " }";
-	}
-
-	return out;
-}
-
-BoolVector operator|(BoolVector& vector1, BoolVector& vector2) {
-
-	BoolVector result;
-
-	if (vector1.size() > vector2.size()) {
-		vector2.fill_zeroes(vector1.size() - vector2.size());
-	}
-	else {
-		vector1.fill_zeroes(vector2.size() - vector1.size());
-	}
-
-	for (size_t i = 0; i < vector1.size(); i++) {
-		if (vector1[i] != vector2[i]) {
-			result.append(vector1[i] + vector2[i]);
-		}
-		else {
-			result.append(vector1[i]);
-		}
-	}
-
-	return result;
-}
-
-BoolVector operator^(BoolVector& vector1, BoolVector& vector2) {
-	BoolVector result;
-
-	if (vector1.size() > vector2.size()) {
-		vector2.fill_zeroes(vector1.size() - vector2.size());
-	}
-	else {
-		vector1.fill_zeroes(vector2.size() - vector1.size());
-	}
-
-	for (size_t i = 0; i < vector1.size(); i++) {
-		if (vector1[i] == vector2[i]) {
-			result.append(false);
-		}
-		else {
-			result.append(true);
-		}
-	}
-
-	return result;
-}
-
-BoolVector::~BoolVector()
-{
-	delete[] memory;
-}
+BoolVector::~BoolVector() {}

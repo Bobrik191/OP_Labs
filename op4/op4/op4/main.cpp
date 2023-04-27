@@ -1,35 +1,25 @@
 #include "boolvector.h"
 
-int main() {
+int main() 
+{
+	BoolVector v1;
+	v1.setXYZ(true, true, true);
+	cout << "Vector 1 cordinates: ";
+	v1.printCord();
 
-	BoolVector vec1;
-	//BoolVector vec2 = { true, false, true, false, false, true };
-	BoolVector vec2 = { true, false, true, true, true, false};
+	BoolVector v2(true, false, true);
+	cout << "Vector 2 cordinates: ";
+	v2.printCord();
 
-	// Простое заполнение первого вектора чередованием.
-	for (size_t i = 0; i < vec2.size(); i++) {
-		if (i % 2 == 0) {
-			vec1.append(false);
-		}
-		else {
-			vec1.append(true);
-		}
-	}
+	BoolVector v3 = v1 | v2;
+	cout << "Vector 3 cordinates: ";
+	v3.printCord();
 
-	std::cout << "Vector1: ";
-	std::cout << vec1 << std::endl;
-	std::cout << "Vector2: ";
-	std::cout << vec2 << std::endl;
+	BoolVector v4 = v3 ^ v1;
+	cout << "Vector 4 cordinates: ";
+	v4.printCord();
 
-	BoolVector vec3(vec1 | vec2);
-
-	std::cout << "V1 | V2: ";
-	std::cout << vec3 << std::endl;
-	BoolVector vec4(vec3 ^ vec1);
-	std::cout << "V3 ^ V1: ";
-	std::cout << vec4 << std::endl;
-	std::cout << "Vec4 is precursor of Vec3? " << vec4.is_precursor(vec3) << std::endl;
-
+	cout << "Vector 4 is precursor of Vector 3? " << v4.is_predecessor(v3) << endl;
 
 	return 0;
 }
