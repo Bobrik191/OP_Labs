@@ -125,13 +125,13 @@ void work()
     int minSeconds12 = t12[0].getSecondLeft12();
     for (int i = 1; i < n; i++) {
         minSeconds12 = min(minSeconds12, t12[i].getSecondLeft12());
-        cout << minSeconds12 << endl;
+        //cout << minSeconds12 << endl;
     }
     int minSeconds24 = t24[0].getSecondsLeft();
     for (int i = 1; i < m; i++)
     {
         minSeconds24 = min(minSeconds24, t24[i].getSecondsLeft());
-        cout << minSeconds24 << endl;
+        //cout << minSeconds24 << endl;
     }
 
     int minSecondsLeft;
