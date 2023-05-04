@@ -11,21 +11,21 @@ BoolVector::BoolVector(bool v1, bool v2, bool v3) {
 	this->Y = v2;
 	this->Z = v3;
 
-	this->cordinates[0] = X;
-	this->cordinates[1] = Y;
-	this->cordinates[2] = Z;
+	this->cord[0] = X;
+	this->cord[1] = Y;
+	this->cord[2] = Z;
 }
 
 BoolVector BoolVector::operator|(BoolVector& other) {
 	BoolVector temp;
 
-	temp.cordinates[0] = this->cordinates[0] || other.cordinates[0];
-	temp.cordinates[1] = this->cordinates[1] || other.cordinates[1];
-	temp.cordinates[2] = this->cordinates[2] || other.cordinates[2];
+	temp.cord[0] = this->cord[0] || other.cord[0];
+	temp.cord[1] = this->cord[1] || other.cord[1];
+	temp.cord[2] = this->cord[2] || other.cord[2];
 
-	temp.X = cordinates[0];
-	temp.Y = cordinates[1];
-	temp.Z = cordinates[2];
+	temp.X = cord[0];
+	temp.Y = cord[1];
+	temp.Z = cord[2];
 	
 	return temp;
 }
@@ -33,13 +33,13 @@ BoolVector BoolVector::operator|(BoolVector& other) {
 BoolVector BoolVector::operator^(BoolVector& other) {
 	BoolVector temp;
 
-	temp.cordinates[0] = (this->cordinates[0] || other.cordinates[0]) && !(this->cordinates[0] && other.cordinates[0]);
-	temp.cordinates[1] = (this->cordinates[1] || other.cordinates[1]) && !(this->cordinates[1] && other.cordinates[1]);
-	temp.cordinates[2] = (this->cordinates[2] || other.cordinates[2]) && !(this->cordinates[2] && other.cordinates[2]);
+	temp.cord[0] = (this->cord[0] || other.cord[0]) && !(this->cord[0] && other.cord[0]);
+	temp.cord[1] = (this->cord[1] || other.cord[1]) && !(this->cord[1] && other.cord[1]);
+	temp.cord[2] = (this->cord[2] || other.cord[2]) && !(this->cord[2] && other.cord[2]);
 
-	temp.X = cordinates[0];
-	temp.Y = cordinates[1];
-	temp.Z = cordinates[2];
+	temp.X = cord[0];
+	temp.Y = cord[1];
+	temp.Z = cord[2];
 
 	return temp;
 }
@@ -51,22 +51,21 @@ void BoolVector::setXYZ(bool value1, bool value2, bool value3) {
 	setCord();
 }
 
-
 void BoolVector::setCord() {
-	this->cordinates[0] = X;
-	this->cordinates[1] = Y;
-	this->cordinates[2] = Z;
+	this->cord[0] = X;
+	this->cord[1] = Y;
+	this->cord[2] = Z;
 }
 
 bool BoolVector::is_predecessor(BoolVector& other) {
-	if (this->cordinates[0] >= other.cordinates[0] || this->cordinates[1] >= other.cordinates[1] || this->cordinates[2] >= other.cordinates[2]) {
+	if (this->cord[0] >= other.cord[0] || this->cord[1] >= other.cord[1] || this->cord[2] >= other.cord[2]) {
 		return false;
 	}
 	return true;
 }
 
 void BoolVector::printCord() {
-	cout << "(" << cordinates[0] << ";" << cordinates[1] << ";" << cordinates[2] << ")" << endl;
+	cout << "(" << cord[0] << ";" << cord[1] << ";" << cord[2] << ")" << endl;
 }
 
 BoolVector::~BoolVector() {}

@@ -9,12 +9,11 @@ private:
 	bool X;
 	bool Y;
 	bool Z;
-	bool cordinates[3];
-
+	bool cord[3];
 public:
 	BoolVector();
 	BoolVector(bool, bool, bool);
-	bool is_predecessor(BoolVector& other);
+	bool is_predecessor(BoolVector&);
 	void setXYZ(bool, bool, bool);
 	void setCord();
 	void printCord();
