@@ -1,3 +1,6 @@
 ﻿  Time.cpp
-D:\Univer\OP_Labs\5op\5op\Time.cpp(44): warning C4715: 'TTime12::getSecondLeft12': not all control paths return a value
+  func.cpp
+  main.cpp
+  Generating Code...
+D:\Univer\OP_Labs\5op\5op\Time.cpp(44): warning C4715: 'TTime12::getSecondsLeft': not all control paths return a value
   5op.vcxproj -> D:\Univer\OP_Labs\5op\x64\Debug\5op.exe
