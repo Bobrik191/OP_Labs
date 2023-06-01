@@ -2,11 +2,13 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "ampul.h"
+#include <tuple>
 
 using namespace std;
 
-string enter_filename();
-void enter_ampule(Ampul& ampule);
-void save_ampule_to_file(ofstream& out, Ampul& ampul);
-void print_file(const string& filename);
+struct ampule;
+
+string get_filename();
+void inputDate(int&, int&, int&);
+void append_file(string);
+void read_data(string);

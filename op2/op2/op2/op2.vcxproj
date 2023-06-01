@@ -131,7 +131,6 @@
     <ClCompile Include="workfile.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ampul.h" />
     <ClInclude Include="workfile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

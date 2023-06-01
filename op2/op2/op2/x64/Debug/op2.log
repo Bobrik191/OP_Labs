@@ -1,3 +1,7 @@
 ﻿  main.cpp
-H:\Univer\ОП\op2\op2\op2\main.cpp(11,7): warning C4101: error_buf: неиспользованная локальная переменная
-  op2.vcxproj -> H:\Univer\ОП\op2\op2\x64\Debug\op2.exe
+  workfile.cpp
+D:\Univer\OP_Labs\op2\op2\op2\workfile.cpp(88,9): warning C4551: function call missing argument list
+D:\Univer\OP_Labs\op2\op2\op2\workfile.cpp(127,9): warning C4551: function call missing argument list
+D:\Univer\OP_Labs\op2\op2\op2\workfile.cpp(131,52): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  op2.vcxproj -> D:\Univer\OP_Labs\op2\op2\x64\Debug\op2.exe
