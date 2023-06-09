@@ -1,0 +1,4 @@
+D:\Univer\OP_Labs\op7\op7\x64\Debug\op7.vcxproj.AssemblyReference.cache
+D:\Univer\OP_Labs\op7\op7\x64\Debug\op7.vcxproj.SuggestedBindingRedirects.cache
+D:\Univer\OP_Labs\op7\op7\x64\Debug\op7.MyForm.resources
+D:\Univer\OP_Labs\op7\op7\x64\Debug\op7.vcxproj.GenerateResource.cache
