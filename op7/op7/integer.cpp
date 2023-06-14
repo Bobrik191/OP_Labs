@@ -1,5 +1,5 @@
 #include "integer.h"
-
+using namespace System;
 using namespace op7;
 
 Integer::Integer(int value)

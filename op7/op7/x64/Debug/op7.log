@@ -1,6 +1,3 @@
-﻿  MyForm.cpp
-D:\Univer\OP_Labs\op7\op7\MyForm.cpp(8,33): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
-  integer.cpp
-  Generating Code...
+﻿  integer.cpp
   integer.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   op7.vcxproj -> D:\Univer\OP_Labs\op7\x64\Debug\op7.exe

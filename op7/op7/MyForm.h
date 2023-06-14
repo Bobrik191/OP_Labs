@@ -137,6 +137,12 @@ namespace op7 {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->button1->BackColor = System::Drawing::Color::White;
+			this->button1->ForeColor = System::Drawing::Color::Black;
+			this->button2->BackColor = System::Drawing::Color::White;
+			this->button2->ForeColor = System::Drawing::Color::Black;
+			//this->textBox1->BackColor = this->BackColor;
+
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
