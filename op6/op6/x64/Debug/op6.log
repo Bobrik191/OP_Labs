@@ -1,2 +1,7 @@
-﻿  work.cpp
+﻿  main.cpp
+  work.cpp
+  Generating Code...
+D:\Univer\OP_Labs\op6\op6\work.cpp(61): warning C4715: 'Iterator<int>::operator--': not all control paths return a value
+D:\Univer\OP_Labs\op6\op6\work.cpp(61): warning C4715: 'Iterator<double>::operator--': not all control paths return a value
+D:\Univer\OP_Labs\op6\op6\work.cpp(61): warning C4715: 'Iterator<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::operator--': not all control paths return a value
   op6.vcxproj -> D:\Univer\OP_Labs\op6\x64\Debug\op6.exe

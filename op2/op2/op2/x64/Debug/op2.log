@@ -1,7 +1,17 @@
-﻿  main.cpp
-  workfile.cpp
-D:\Univer\OP_Labs\op2\op2\op2\workfile.cpp(88,9): warning C4551: function call missing argument list
-D:\Univer\OP_Labs\op2\op2\op2\workfile.cpp(127,9): warning C4551: function call missing argument list
-D:\Univer\OP_Labs\op2\op2\op2\workfile.cpp(131,52): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
-  op2.vcxproj -> D:\Univer\OP_Labs\op2\op2\x64\Debug\op2.exe
+﻿  workfile.cpp
+D:\Univer\OP_Labs\op2\op2\op2\workfile.cpp(89,9): warning C4551: function call missing argument list
+D:\Univer\OP_Labs\op2\op2\op2\workfile.cpp(103,12): error C2665: 'std::basic_istream<char,std::char_traits<char>>::getline': no overloaded function could convert all the argument types
+D:\VS\VC\Tools\MSVC\14.35.32215\include\istream(440,39): message : could be 'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::getline(_Elem *,std::streamsize)'
+          with
+          [
+              _Elem=char
+          ]
+D:\Univer\OP_Labs\op2\op2\op2\workfile.cpp(103,12): message : 'std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::getline(_Elem *,std::streamsize)': cannot convert argument 1 from 'std::string' to '_Elem *'
+          with
+          [
+              _Elem=char
+          ]
+D:\Univer\OP_Labs\op2\op2\op2\workfile.cpp(103,25): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+D:\Univer\OP_Labs\op2\op2\op2\workfile.cpp(103,12): message : while trying to match the argument list '(std::string, size_t)'
+D:\Univer\OP_Labs\op2\op2\op2\workfile.cpp(129,9): warning C4551: function call missing argument list
+D:\Univer\OP_Labs\op2\op2\op2\workfile.cpp(133,52): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data

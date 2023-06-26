@@ -4,6 +4,7 @@ using namespace std;
 
 struct ampule
 {
+    //string name;
     char name[256];
     int hours;
     int minutes;
@@ -99,6 +100,7 @@ void append_file(string filename) {
         cout << "\n";
         cout << "Enter name of ampule: ";
         cin.ignore();
+        //cin.getline(cin, ampl.name);
         cin.getline(ampl.name, sizeof(ampl.name));
 
         cout << "Enter expiry after opening(HH:MM): ";
@@ -120,7 +122,8 @@ void append_file(string filename) {
     fout.close();
 }
 
-void read_data(string filename) {
+void read_data(string filename) 
+{
     ifstream fin(filename, ios::binary);
     if (!fin.is_open()) {
         cout << "Something went wrong!!!" << endl;
@@ -178,7 +181,7 @@ void read_data(string filename) {
         int monthsLeft = expiryMonth - currentMonth;
         int yearsLeft = expiryYear - currentYear;
 
-        if (daysLeft <= 10 && monthsLeft <= 0 && yearsLeft <= 0) {
+        if (daysLeft <= 10 && daysLeft > 0 && monthsLeft <= 0 && yearsLeft <= 0) {
             std::cout << "The expiry date is less than 10 days remaining!" << daysLeft << std::endl;
         }
     }

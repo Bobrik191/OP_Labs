@@ -20,6 +20,8 @@ public:
     void clear();
     void print() const;
     bool empty() const;
+    void printElement(int);
+    Iterator<T> rbegin();
     Iterator<T> begin();
     Iterator<T> end();
     ~Deque();
